@@ -1,7 +1,6 @@
 package org.example;
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.clients.notification.NotificationRequest;
 import org.springframework.web.bind.annotation.PostMapping;
