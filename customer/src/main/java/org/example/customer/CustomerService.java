@@ -1,5 +1,6 @@
-package org.example;
+package org.example.customer;
 
+import org.example.amqp.RabbitMQMessageProducer;
 import org.example.clients.notification.NotificationRequest;
 import org.example.clients.fraud.FraudCheckResponse;
 import org.example.clients.fraud.FraudClient;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public record CustomerService(CustomerRepository customerRepository, FraudClient fraudClient,
-							  NotificationClient notificationClient) {
+							   RabbitMQMessageProducer rabbitMQMessageProducer) {
 
 	public void registerCustomer(CustomerRegistrationRequest request) {
 		Customer customer = Customer.builder()
@@ -21,8 +22,11 @@ public record CustomerService(CustomerRepository customerRepository, FraudClient
 		if (response.isFraudster()) {
 			throw new IllegalStateException("Customer is a fraudster!");
 		}
-		notificationClient.send(new NotificationRequest(customer.getId(), customer.getFirstName(),
-				"Hello %s, thank you for registering!".formatted(customer.getFirstName())));
+		NotificationRequest notificationRequest = new NotificationRequest(customer.getId(), customer.getFirstName(),
+				"Hello %s, thank you for registering!".formatted(customer.getFirstName()));
+		rabbitMQMessageProducer.publish(notificationRequest,
+				"internal-exchange",
+				"internal.notification.routing.key");
 
 
 	}
