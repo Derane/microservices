@@ -1,4 +1,4 @@
-package org.example;
+package org.example.notification;
 
 import lombok.RequiredArgsConstructor;
 import org.example.clients.notification.NotificationRequest;

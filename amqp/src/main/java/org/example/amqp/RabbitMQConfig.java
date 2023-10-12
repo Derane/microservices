@@ -1,4 +1,4 @@
-package org.example;
+package org.example.amqp;
 
 import lombok.AllArgsConstructor;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @AllArgsConstructor
-public class RabbitMqConfig {
+public class RabbitMQConfig {
 
 	private final ConnectionFactory connectionFactory;
 

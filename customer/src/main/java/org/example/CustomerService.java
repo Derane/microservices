@@ -1,9 +1,9 @@
 package org.example;
 
+import org.example.clients.notification.NotificationRequest;
 import org.example.clients.fraud.FraudCheckResponse;
 import org.example.clients.fraud.FraudClient;
 import org.example.clients.notification.NotificationClient;
-import org.example.clients.notification.NotificationRequest;
 import org.springframework.stereotype.Service;
 
 @Service
