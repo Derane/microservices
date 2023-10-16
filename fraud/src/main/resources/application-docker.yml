@@ -1,15 +1,15 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   zipkin:
-    base-url: http://localhost:9411
+    base-url: http://zipkin:9411
   rabbitmq:
-    addresses: localhost:5672
+    addresses: rabbitmq:5672
   application:
-    name: customer
+    name: fraud
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://postgres:5432/fraud
     username: postgres
     password: postgres
     jpa:
