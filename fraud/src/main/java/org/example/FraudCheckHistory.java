@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -16,13 +13,14 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @Entity
+@Table(schema = "public", name = "fraud")
 public class FraudCheckHistory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
-
+	@Column(name = "customer_id")
 	private Integer customerId;
-
+	@Column(name = "is_fraudster")
 	private Boolean isFraudster;
 	private LocalDateTime createdAt;
 }

@@ -90,7 +90,7 @@
                             <platforms>
                                 <plaform>
                                     <architecture>amd64</architecture>
-                                    <os>windows</os>
+                                    <os>linux</os>
                                 </plaform>
                             </platforms>
                         </from>
