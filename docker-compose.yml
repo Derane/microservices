@@ -29,36 +29,36 @@ services:
       - "15672:15672"
     networks:
       - spring
-#  eureka-server:
-#    image: derane/eureka-server:latest
-#    container_name: eureka-server
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-#    ports:
-#      - "8761:8761"
-#    depends_on:
-#      - zipkin
-#    networks:
-#      - spring
-#  apigw:
-#    image: derane/apigw:latest
-#    container_name: apigw
-#    environment:
-#        - SPRING_PROFILES_ACTIVE=docker
-#    ports:
-#      - "8083:8083"
-#    depends_on:
-#      - zipkin
-#      - eureka-server
-#    networks:
-#      - spring
+  #  eureka-server:
+  #    image: derane/eureka-server:latest
+  #    container_name: eureka-server
+  #    environment:
+  #      - SPRING_PROFILES_ACTIVE=docker
+  #    ports:
+  #      - "8761:8761"
+  #    depends_on:
+  #      - zipkin
+  #    networks:
+  #      - spring
+  #  apigw:
+  #    image: derane/apigw:latest
+  #    container_name: apigw
+  #    environment:
+  #        - SPRING_PROFILES_ACTIVE=docker
+  #    ports:
+  #      - "8083:8083"
+  #    depends_on:
+  #      - zipkin
+  #      - eureka-server
+  #    networks:
+  #      - spring
   customer:
     image: derane/customer:latest
     container_name: customer
     ports:
       - "8080:8080"
     environment:
-        - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
       - spring
       - postgres
@@ -72,10 +72,10 @@ services:
     ports:
       - "8081:8081"
     environment:
-        - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
-        - postgres
-        - spring
+      - postgres
+      - spring
     depends_on:
       - zipkin
       - postgres

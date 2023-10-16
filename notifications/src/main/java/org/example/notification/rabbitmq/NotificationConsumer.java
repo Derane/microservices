@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.clients.notification.NotificationRequest;
 import org.example.notification.NotificationService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 @Service

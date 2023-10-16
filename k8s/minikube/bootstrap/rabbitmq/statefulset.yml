@@ -45,7 +45,7 @@ spec:
               # Learn more at https://www.rabbitmq.com/monitoring.html#health-checks.
               #
               # Stage 2 check:
-              command: ["rabbitmq-diagnostics", "status"]
+              command: [ "rabbitmq-diagnostics", "status" ]
             initialDelaySeconds: 60
             # See https://www.rabbitmq.com/monitoring.html for monitoring frequency recommendations.
             periodSeconds: 60
@@ -58,7 +58,7 @@ spec:
               # Learn more at https://www.rabbitmq.com/monitoring.html#health-checks.
               #
               # Stage 1 check:
-              command: ["rabbitmq-diagnostics", "ping"]
+              command: [ "rabbitmq-diagnostics", "ping" ]
             initialDelaySeconds: 20
             periodSeconds: 60
             timeoutSeconds: 10
